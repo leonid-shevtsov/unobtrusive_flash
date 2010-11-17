@@ -8,7 +8,7 @@ class UnobtrusiveFlashGenerator < Rails::Generator::Base
       m.template 'unobtrusive_flash.css', File.join('public', 'stylesheets', 'unobtrusive_flash.css')
 
       m.directory File.join('public', 'javascripts')
-      m.template 'unobtrusive_flash.js', File.join('public', 'stylesheets', 'unobtrusive_flash.js')
+      m.template 'unobtrusive_flash.js', File.join('public', 'javascripts', 'unobtrusive_flash.js')
     end
   end
 
