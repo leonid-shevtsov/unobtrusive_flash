@@ -18,7 +18,7 @@ plugin and a by-product of my work at [RailsWare](http://github.com/railsware).
 ## Usage
 
 1. Add the gem to your Rails app.
-2. Run `script/generate unobtrusive_flash` or `rails g unobtrusive_flash`
+2. Run `script/generate unobtrusive_flash` or `rails g unobtrusive_flash:install`
 3. Add the following to the controllers that generate flash messages (or better, to the `ApplicationController`):
 
         after_filter :prepare_unobtrusive_flash
