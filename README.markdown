@@ -39,6 +39,6 @@ Tested and fully functional in:
 5. Remove existing flash rendering code from your layouts.
 6. That's all! You can also edit the generated CSS/JS to your liking.
 
----
+* * *
 
 &copy; 2010 Leonid Shevtsov, released under the MIT license
