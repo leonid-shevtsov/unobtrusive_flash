@@ -6,14 +6,14 @@ Ever got tired of writing custom code to handle flash messages passed in AJAX re
 
 Here comes the solution.
 
-`rails-unobtrusive-flash` takes your flash messages for the backend and automagically passes them to the frontend via
-HTTP headers. It is an improvement over my [cacheable-flash-query](http://github.com/leonid-shevtsov/cacheable-flash-jquery)
-plugin and a by-product of my work at [RailsWare](http://github.com/railsware).
+`unobtrusive_flash` takes your flash messages for the backend and automagically passes them to the frontend via
+HTTP cookies. It is an improvement over my [cacheable-flash-query](http://github.com/leonid-shevtsov/cacheable-flash-jquery)
+plugin.
 
 ## Requirements
 
 * Rails 2.3 or 3
-* jQuery (maybe i'll make it agnostic in the future)
+* jQuery (maybe I'll make it agnostic in the future)
 
 ## Usage
 
@@ -24,7 +24,8 @@ plugin and a by-product of my work at [RailsWare](http://github.com/railsware).
         after_filter :prepare_unobtrusive_flash
  
 4. Add `unobtrusive_flash.css` and `unobtrusive_flash.js` to your layouts. No custom markup is needed.
-5. That's all! You can also edit the generated CSS/JS to your liking.
+5. Remove existing flash rendering code from your layouts.
+6. That's all! You can also edit the generated CSS/JS to your liking.
 
 ---
 
