@@ -7,8 +7,20 @@ Ever got tired of writing custom code to handle flash messages passed in AJAX re
 Here comes the solution.
 
 `unobtrusive_flash` takes your flash messages for the backend and automagically passes them to the frontend via
-HTTP cookies. It is an improvement over my [cacheable-flash-query](http://github.com/leonid-shevtsov/cacheable-flash-jquery)
-plugin.
+HTTP cookies. This works with both regular page loads and AJAX requests, does not tamper with the page body and requires
+about 3 extra lines of code in your app - how's that for unobtrusive?
+
+You can pass up to 4K of text into flash this way, and you don't need to worry about cookie size since they are
+cleared immediately upon rendering.
+
+Tested and fully functional in: 
+
+* Internet Explorer 8
+* Firefox 4b7
+* Chrome 7
+* Safari 5
+* Opera 10.6
+* *please let me know if it works in firefox 3 and ie 6, 7*
 
 ## Requirements
 
@@ -23,7 +35,7 @@ plugin.
 
         after_filter :prepare_unobtrusive_flash
  
-4. Add `unobtrusive_flash.css` and `unobtrusive_flash.js` to your layouts. No custom markup is needed.
+4. Include `unobtrusive_flash.css` and `unobtrusive_flash.js` in your layouts. No custom markup is needed.
 5. Remove existing flash rendering code from your layouts.
 6. That's all! You can also edit the generated CSS/JS to your liking.
 
