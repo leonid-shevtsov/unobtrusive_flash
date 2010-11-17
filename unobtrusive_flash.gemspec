@@ -12,7 +12,7 @@ spec = Gem::Specification.new do |s|
 
   s.homepage = 'http://github.com/leonid-shevtsov/unobtrusive_flash'
 
-  s.files = FileList['lib//*', 'generators/*.rb', 'rails/init.rb', '[A-Z]*'].to_a
+  s.files = FileList['lib/**/*', 'generators/**/*.rb', 'rails/init.rb', '[A-Z]*'].to_a
 
   s.has_rdoc = false
 end
