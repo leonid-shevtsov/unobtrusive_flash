@@ -1,3 +1,5 @@
+require 'rake'
+
 spec = Gem::Specification.new do |s|
   s.author = 'Leonid Shevtsov'
   s.email = 'leonid@shevtsov.me'
