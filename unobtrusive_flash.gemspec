@@ -1,5 +1,3 @@
-require 'rake'
-
 spec = Gem::Specification.new do |s|
   s.author = 'Leonid Shevtsov'
   s.email = 'leonid@shevtsov.me'
@@ -16,7 +14,7 @@ EOT
 
   s.homepage = 'http://github.com/leonid-shevtsov/unobtrusive_flash'
 
-  s.files = FileList['lib/**/*', 'generators/**/*.rb', 'rails/init.rb', 'init.rb', '[A-Z]*'].to_a
+  s.files = Dir['{lib/**/*, generators/**/*.rb, rails/init.rb, init.rb, [A-Z]*}']
 
   s.has_rdoc = false
 end
