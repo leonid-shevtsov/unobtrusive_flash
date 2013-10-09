@@ -47,6 +47,8 @@ Tested in:
 
 Also `require unobtrusive_flash_bootstrap` in your `application.js`. This file contains flash message UI based on the [Bootstrap alert component](http://getbootstrap.com/components/#alerts).
 
+Either declare a `.unobtrusive-flash-container` element somewhere on the page to contain the alerts, or Unobtrusive flash will choose the first `.container` or `.container-fluid` element on the page, or fall back to the `body`.
+
 ### Option 2: For non-Bootstrap projects
 
 Also `require unobtrusive_flash_ui` in your `application.js` and `require unobtrusive_flash_ui` in your `application.css`. These files contain a no-frills flash message UI that works out of the box.
