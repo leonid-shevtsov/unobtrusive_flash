@@ -39,7 +39,9 @@ Tested in:
 
 3. Include `require unobtrusive_flash` in your `application.js`.
 
-4. Delete flash rendering code from your views, if there is any.
+4. Delete flash rendering code from your views, if there was any.
+
+5. You have three options to render flash messages on the frontend:
 
 ### Option 1: For Bootstrap projects
 
