@@ -30,7 +30,10 @@ Tested in:
 
 ## Usage
 
-1. Add the gem to your Rails app.
+1. Add the `unobtrusive_flash` gem to your Gemfile.
+
+        gem 'unobtrusive_flash', '~>2'
+
 2. Add the following to the controllers that generate flash messages (or better, to the `ApplicationController`):
 
         after_filter :prepare_unobtrusive_flash
