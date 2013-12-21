@@ -38,7 +38,7 @@ Tested in:
 
         after_filter :prepare_unobtrusive_flash
 
-    Important! **Flash messages are NOT HTML escaped**, so you can use any markup in them. Take additional care to protect yourself from injection attacks if necessary.
+    Flash messages are HTML escaped in the same manner as regular Rails view code: if a message is not `html_safe`, it is escaped, otherwise not. This lets you use helpers such as `link_to` in your messages.
 
 3. Include `require unobtrusive_flash` in your `application.js`.
 
