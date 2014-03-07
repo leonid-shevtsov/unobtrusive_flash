@@ -1,3 +1,12 @@
+## 2014-03-07 3.0.0
+
+* Moved Javascript methods to an `UnobtrusiveFlash` module. This breaks calling `$.showFlashMessage`, hence another major release [#11]
+* Make sure that the flash events are invoked after a handler had a chance to bind [#10]
+* Changed default alerts to never autohide [#6]
+* Bootstrap handler: All conventional Rails notices are correctly styled by @conzett [#12]
+* Turbolinks are supported thanks to @yoyos [#13]
+* Fixes to cookie nuking by @asaletnik [#7]
+
 ## 2013-12-21 2.1.0
 
 * Changed message escaping logic to use the Rails html_safe conventions (Possibly breaking change)

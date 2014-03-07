@@ -9,7 +9,7 @@ Ever got tired of writing custom code to handle flash messages passed in AJAX re
 Here comes the solution.
 
 `unobtrusive_flash` takes your flash messages for the backend and automagically passes them to the frontend via
-HTTP cookies. This works with both regular page loads and AJAX requests, does not tamper with the page body and requires
+HTTP cookies. This works with both **regular page loads**, **jQuery AJAX requests**, and **turbolinks** (from v3), does not tamper with the page body and requires
 about 3 extra lines of code in your app - how's that for unobtrusive?
 
 You can pass up to 4K of text into flash this way, and you don't need to worry about cookie size since they are
@@ -25,14 +25,14 @@ Tested in:
 
 ## Requirements
 
-* Rails 3
+* Rails >=3
 * jQuery (tested with v1.10)
 
 ## Usage
 
 1. Add the `unobtrusive_flash` gem to your Gemfile.
 
-        gem 'unobtrusive_flash', '~>2'
+        gem 'unobtrusive_flash', '>=3'
 
 2. Add the following to the controllers that generate flash messages (or better, to the `ApplicationController`):
 
@@ -66,16 +66,20 @@ Unobtrusive Flash triggers jQuery events when flash is received. If you want to 
 
     $(window).bind('rails:flash', flashHandler);
 
+
+## Using UnobtrusiveFlash with a frontend framework that doesn't use jQuery for AJAX
+
+Call `UnobtrusiveFlash.showFlashFromCookies()` in your Javascript after a completed request.
  
 ## Bonus: show 'flash messages' from the front-end
 
 Both Bootstrap and non-Bootstrap versions contain a function to display flash messages:
 
     // Shown for 5 seconds (default)
-    $.showFlashMessage('Hello World', {type: 'notice'})
+    UnobtrusiveFlash.showFlashMessage('Hello World', {type: 'notice'})
     // Shown forever
-    $.showFlashMessage('Error', {type: 'error', timeout: 0})
+    UnobtrusiveFlash.showFlashMessage('Error', {type: 'error', timeout: 0})
 
 * * *
 
-&copy; 2010-2013 Leonid Shevtsov, released under the MIT license
+&copy; 2010-2014 Leonid Shevtsov, released under the MIT license
