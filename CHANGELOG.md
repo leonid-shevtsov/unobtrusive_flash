@@ -1,3 +1,10 @@
+## 2014-06-23 3.1.0
+
+* Extracted default flash options to `UnobtrusiveFlash.flashOptions` so you can set the message timeout.
+* Use `hostname` when nuking cookies by @zeppelin [#14]
+* Check $flashContainer dynamically by @nfedyashev [#15].
+* Fixed issues with applications on the .herokuapp.com domain [#16].
+
 ## 2014-03-07 3.0.0
 
 * Moved Javascript methods to an `UnobtrusiveFlash` module. This breaks calling `$.showFlashMessage`, hence another major release [#11]

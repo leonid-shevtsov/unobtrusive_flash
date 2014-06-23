@@ -89,4 +89,4 @@ Both Bootstrap and non-Bootstrap versions contain a function to display flash me
 
 * * *
 
-&copy; 2010-2014 Leonid Shevtsov, released under the MIT license
+&copy; 2010-2014 [Leonid Shevtsov](http://leonid.shevtsov.me) and [contributors](https://github.com/leonid-shevtsov/unobtrusive_flash/graphs/contributors), released under the MIT license
