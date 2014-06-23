@@ -1,4 +1,4 @@
-# Unobtrusive flash messages for Rails
+# Unobtrusive flash messages for Rails [![Build Status](https://travis-ci.org/leonid-shevtsov/unobtrusive_flash.svg?branch=master)](https://travis-ci.org/leonid-shevtsov/unobtrusive_flash)
 
 **Version 1 users:** this gem got a major redesign in version 2, please read the documentation
 
