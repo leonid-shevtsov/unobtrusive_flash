@@ -52,9 +52,17 @@ Also `require unobtrusive_flash_bootstrap` in your `application.js`. This file c
 
 Either declare a `.unobtrusive-flash-container` element somewhere on the page to contain the alerts, or Unobtrusive flash will choose the first `.container` or `.container-fluid` element on the page, or fall back to the `body`.
 
+If you want the flash messages to disappear automatically, set this in your Javascript:
+
+    UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
+
 ### Option 2: For non-Bootstrap projects
 
 Also `require unobtrusive_flash_ui` in your `application.js` and `require unobtrusive_flash_ui` in your `application.css`. These files contain a no-frills flash message UI that works out of the box.
+
+If you want the flash messages to disappear automatically, set this in your Javascript:
+
+    UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
 
 ### Option 3: Roll your own
 
@@ -65,7 +73,6 @@ Unobtrusive Flash triggers jQuery events when flash is received. If you want to 
     };
 
     $(window).bind('rails:flash', flashHandler);
-
 
 ## Using UnobtrusiveFlash with a frontend framework that doesn't use jQuery for AJAX
 
