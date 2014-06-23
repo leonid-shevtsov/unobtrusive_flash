@@ -13,8 +13,19 @@ module UnobtrusiveFlash
         end
 
         cookie_flash += UnobtrusiveFlash::ControllerMixin.sanitize_flash(flash)
-        cookies[:flash] = {:value => cookie_flash.to_json, :domain => :all}
+        cookies[:flash] = {:value => cookie_flash.to_json, :domain => unobtrusive_flash_domain}
         flash.discard
+      end
+    end
+
+    # Setting cookies for :all domains is broken for Heroku apps, read this article for details
+    # https://devcenter.heroku.com/articles/cookies-and-herokuapp-com
+    # You can also override this method in your controller if you need to customize the cookie domain
+    def unobtrusive_flash_domain
+      if request.host =~ /\.herokuapp\.com$/
+        request.host
+      else
+        :all
       end
     end
 
