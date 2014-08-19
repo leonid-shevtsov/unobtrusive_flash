@@ -4,8 +4,10 @@ end
 
 appraise "rails-4.0" do
   gem "rails", "~>4.0.9"
+  gem 'turbolinks'
 end
 
 appraise "rails-4.1" do
   gem "rails", "~>4.1.5"
+  gem 'turbolinks'
 end

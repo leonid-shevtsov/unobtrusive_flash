@@ -29,5 +29,5 @@ EOT
   spec.add_development_dependency "rspec-mocks", '>=3'
   spec.add_development_dependency "appraisal"
   spec.add_development_dependency "capybara", '>=2.3'
-  spec.add_development_dependency "poltergeist"
+  spec.add_development_dependency 'selenium-webdriver'
 end

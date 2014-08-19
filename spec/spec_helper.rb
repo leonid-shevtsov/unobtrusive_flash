@@ -1,7 +1,6 @@
 require 'bundler'
 require 'rspec'
 require 'capybara/rspec'
-require 'capybara/poltergeist'
 
 ENV['JQUERY_VERSION'] ||= '2.1.1'
 
@@ -10,4 +9,4 @@ require 'unobtrusive_flash'
 require 'support/rails_app'
 
 Capybara.app = TestApp
-Capybara.javascript_driver = :poltergeist
+Capybara.javascript_driver = :selenium
