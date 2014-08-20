@@ -11,7 +11,6 @@ describe "bootstrap spec", type: :feature, js: true, sauce: true do
   it 'should translate rails message types into bootstrap alert classes' do
     visit '/test/bootstrap'
     expect(page).to have_content 'Page loaded'
-    save_and_open_page
     within('.alert.alert-info') { expect(page).to have_content 'Inline Notice' }
   end
 
