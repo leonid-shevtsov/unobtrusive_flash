@@ -25,14 +25,13 @@ EOT
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec", '>=3'
-  spec.add_development_dependency "rspec-mocks", '>=3'
+  spec.add_development_dependency "rspec", '~>2.99.0'
+  spec.add_development_dependency "rspec-mocks", '~>2.99.2'
   spec.add_development_dependency "appraisal"
   spec.add_development_dependency "capybara", '>=2.3'
   # for local tests
   spec.add_development_dependency 'selenium-webdriver'
   # for Travis CI
-  spec.add_development_dependency 'sauce', '~> 3.1.1'
+  spec.add_development_dependency 'sauce', '~> 3.4'
   spec.add_development_dependency 'sauce-connect'
-  spec.add_development_dependency 'parallel_tests'
 end

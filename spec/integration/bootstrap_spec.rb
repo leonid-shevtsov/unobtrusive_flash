@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "bootstrap spec", type: :feature, js: true do
+describe "bootstrap spec", type: :feature, js: true, sauce: true do
   it 'should show each flash message' do
     visit '/test/bootstrap'
     expect(page).to have_content 'Page loaded'
