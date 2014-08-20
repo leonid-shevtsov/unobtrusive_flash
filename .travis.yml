@@ -16,4 +16,4 @@ env:
   global:
   - secure: COZUYF0bASDTYfSu6EqgGQZ76BiblYMJB6xeMe6tkke+tw1Vs+/eoLyl08TFRmU+Kc0jOVlKKU7C0/9BQKxyfm8DFyDH9QUkXSzcpoDk5uNyDQazfXF+UQ0N4Ixqs/HnW1435H+L3pI4+P2XMPzgCW+TUE8xC34Na18KMhvoUyo=
   - secure: rG2JBZNp6np5m6/lKALU7lXET8CxeUJ6HJjhVXPU7+q8VWwV3oRe+fg6eRpoSmCa0eN6gU6gAeAhKcgiLJGr3Bthr8XOGje8pquoxlbm377qfxdjLhU0knEpUdX9E8XvQDBe81e8NuXn3uG1SHSI0NoyQM6WgFoC9kfcq2lQhx4=
-script: bundle exec rake sauce:spec
+script: bundle exec rake spec

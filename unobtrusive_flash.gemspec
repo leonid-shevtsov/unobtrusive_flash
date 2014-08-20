@@ -34,5 +34,4 @@ EOT
   # for Travis CI
   spec.add_development_dependency 'sauce', '~> 3.4'
   spec.add_development_dependency 'sauce-connect'
-  spec.add_development_dependency 'parallel_tests'
 end
