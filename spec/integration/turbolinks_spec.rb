@@ -11,5 +11,13 @@ if Rails.version =~ /^4\./ and Capybara.javascript_driver == :selenium
         {'type' => 'notice', 'message' => 'Turbolink Notice'}
       ]
     end
+
+    it 'should not duplicate messages when using the jquery.turbolinks plugin' do
+      visit '/test/jquery_turbolinks'
+      click_link 'This is a turbolink'
+      click_link 'One more turbolink'
+      expect(page).to have_content 'Turbolink content'
+      expect(page).to have_content 'Turbolink Notice', count: 1
+    end
   end
 end

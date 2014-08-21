@@ -1,3 +1,4 @@
+//=require jquery_ujs
 //=require unobtrusive_flash
 //=require ajax_caller
 //=require_self
