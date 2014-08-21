@@ -1,6 +1,4 @@
 language: ruby
-addons:
-  sauce_connect: true
 rvm:
 - 1.9
 - 2.0
@@ -11,16 +9,7 @@ gemfile:
 - gemfiles/rails_4.1.gemfile
 env:
   matrix:
-  - JQUERY_VERSION=2.1.1 SAUCE_BROWSER='Windows 8:Internet Explorer:10'
-  - JQUERY_VERSION=2.1.1 SAUCE_BROWSER='Windows 7:Firefox:31'
-  - JQUERY_VERSION=2.1.1 SAUCE_BROWSER='OS X 10.9:Safari:7'
-  - JQUERY_VERSION=2.1.1 SAUCE_BROWSER='Linux:Chrome:26'
-  - JQUERY_VERSION=1.11.1 SAUCE_BROWSER='Windows 8:Internet Explorer:10'
-  - JQUERY_VERSION=1.11.1 SAUCE_BROWSER='Windows 7:Firefox:31'
-  - JQUERY_VERSION=1.11.1 SAUCE_BROWSER='OS X 10.9:Safari:7'
-  - JQUERY_VERSION=1.11.1 SAUCE_BROWSER='Linux:Chrome:26'
+  - JQUERY_VERSION=2.1.1
+  - JQUERY_VERSION=1.11.1
 
-  global:
-  - secure: COZUYF0bASDTYfSu6EqgGQZ76BiblYMJB6xeMe6tkke+tw1Vs+/eoLyl08TFRmU+Kc0jOVlKKU7C0/9BQKxyfm8DFyDH9QUkXSzcpoDk5uNyDQazfXF+UQ0N4Ixqs/HnW1435H+L3pI4+P2XMPzgCW+TUE8xC34Na18KMhvoUyo=
-  - secure: rG2JBZNp6np5m6/lKALU7lXET8CxeUJ6HJjhVXPU7+q8VWwV3oRe+fg6eRpoSmCa0eN6gU6gAeAhKcgiLJGr3Bthr8XOGje8pquoxlbm377qfxdjLhU0knEpUdX9E8XvQDBe81e8NuXn3uG1SHSI0NoyQM6WgFoC9kfcq2lQhx4=
 script: bundle exec rake spec

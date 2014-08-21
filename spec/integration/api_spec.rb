@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "api spec", type: :feature, js: true, sauce: true do
+describe "api spec", type: :feature, js: true do
   it 'should invoke the API for each flash message' do
     visit '/test/api'
     expect(page).to have_content 'Page loaded'
