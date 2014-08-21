@@ -13,7 +13,7 @@ about 3 extra lines of code in your app - how's that for unobtrusive?
 You can pass up to 4K of text into flash this way, and you don't need to worry about cookie size since they are
 cleared immediately upon rendering.
 
-Tested in: 
+Tested in:
 
 * Internet Explorer 8 and later
 * Firefox up to v24
@@ -23,18 +23,22 @@ Tested in:
 
 ## Requirements
 
-* Rails >=3
-* jQuery (tested with v1.10)
+* Rails >=3 (Latest versions of 3.2, 4.0, 4.1 are automatically tested)
+* jQuery (Latest versions of both jQuery 1 and jQuery 2 are automatically tested)
 
 ## Usage
 
 1. Add the `unobtrusive_flash` gem to your Gemfile.
 
-        gem 'unobtrusive_flash', '>=3'
+    ```ruby
+    gem 'unobtrusive_flash', '>=3'
+    ```
 
 2. Add the following to the controllers that generate flash messages (or better, to the `ApplicationController`):
 
-        after_filter :prepare_unobtrusive_flash
+    ```ruby
+    after_filter :prepare_unobtrusive_flash
+    ```
 
     Flash messages are HTML escaped in the same manner as regular Rails view code: if a message is not `html_safe`, it is escaped, otherwise not. This lets you use helpers such as `link_to` in your messages.
 
@@ -52,7 +56,9 @@ Either declare a `.unobtrusive-flash-container` element somewhere on the page to
 
 If you want the flash messages to disappear automatically, set this in your Javascript:
 
-    UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
+```javascript
+UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
+```
 
 ### Option 2: For non-Bootstrap projects
 
@@ -60,30 +66,50 @@ Also `require unobtrusive_flash_ui` in your `application.js` and `require unobtr
 
 If you want the flash messages to disappear automatically, set this in your Javascript:
 
-    UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
+```javascript
+UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
+```
 
 ### Option 3: Roll your own
 
 Unobtrusive Flash triggers jQuery events when flash is received. If you want to integrate it with your own UI, implement and bind a handler:
 
-    flashHandler = function(e, params) {
-      alert('Received flash message '+params.message+' with type '+params.type);
-    };
+```javascript
+flashHandler = function(e, params) {
+  alert('Received flash message '+params.message+' with type '+params.type);
+};
 
-    $(window).bind('rails:flash', flashHandler);
+$(window).bind('rails:flash', flashHandler);
+```
 
 ## Using UnobtrusiveFlash with a frontend framework that doesn't use jQuery for AJAX
 
 Call `UnobtrusiveFlash.showFlashFromCookies()` in your Javascript after a completed request.
- 
+
 ## Bonus: show 'flash messages' from the front-end
 
 Both Bootstrap and non-Bootstrap versions contain a function to display flash messages:
 
-    // Shown for 5 seconds (default)
-    UnobtrusiveFlash.showFlashMessage('Hello World', {type: 'notice'})
-    // Shown forever
-    UnobtrusiveFlash.showFlashMessage('Error', {type: 'error', timeout: 0})
+```javascript
+// Shown for 5 seconds (default)
+UnobtrusiveFlash.showFlashMessage('Hello World', {type: 'notice'})
+// Shown forever
+UnobtrusiveFlash.showFlashMessage('Error', {type: 'error', timeout: 0})
+```
+
+## Running tests
+
+This plugin's test suite includes a full set of integration tests for various versions of Rails. To run them:
+
+```shell
+bundle install
+appraisal install
+appraisal rake spec
+```
+
+The same tests are ran on Travis CI against multiple versions of Ruby and jQuery.
+
+The Travis CI build does not test turbolinks as of now, because PhantomJS 1 does not support the necessary APIs. However, if you run the tests outside of Travis, they will use Selenium and perform a full range of tests.
 
 * * *
 
