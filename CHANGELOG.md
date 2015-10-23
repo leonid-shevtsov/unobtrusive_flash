@@ -1,3 +1,7 @@
+## 2015-10-23 3.1.1
+
+* Fix typo that didn't clear domainless cookies thanks to @pavelgnom [#23]
+
 ## 2014-06-23 3.1.0
 
 * Extracted default flash options to `UnobtrusiveFlash.flashOptions` so you can set the message timeout.

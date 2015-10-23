@@ -97,6 +97,20 @@ UnobtrusiveFlash.showFlashMessage('Hello World', {type: 'notice'})
 UnobtrusiveFlash.showFlashMessage('Error', {type: 'error', timeout: 0})
 ```
 
+## Issue with certain "hosted domains"
+
+There are [certain domains](https://publicsuffix.org/list/) that are considered "public" or "hosting" and specifically don't share cookies across subdomains. An example is `herokuapp.com` - a cookie set for `yourapp.herokuapp.com` will not be applied for `myapp.herokuapp.com`. This breaks the logic of `unobtrusive_flash` which is tuned for regular domains that could have internal subdomains.
+
+In this case, you should explicitly specify your domain:
+
+```ruby
+class ApplicationController
+  def unobtrusive_flash_domain
+    request.host # last resort is hardcoding the domain here
+  end
+end
+```
+
 ## Running tests
 
 This plugin's test suite includes a full set of integration tests for various versions of Rails. To run them:
