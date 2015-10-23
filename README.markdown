@@ -23,7 +23,7 @@ Tested in:
 
 ## Requirements
 
-* Rails >=3 (Latest versions of 3.2, 4.0, 4.1 are automatically tested)
+* Rails >=3 (Latest versions of 3.2, 4.0, 4.1, 4.2 are automatically tested)
 * jQuery (Latest versions of both jQuery 1 and jQuery 2 are automatically tested)
 
 ## Usage

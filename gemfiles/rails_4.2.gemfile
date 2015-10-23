@@ -2,7 +2,9 @@
 
 source "https://rubygems.org"
 
-gem "rails", "~>3.2.22"
+gem "rails", "~>4.2.4"
 gem "jquery-rails", "~> 2.1"
+gem "turbolinks"
+gem "jquery-turbolinks", ">2"
 
 gemspec :path => "../"
