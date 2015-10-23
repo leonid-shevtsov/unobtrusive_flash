@@ -1,7 +1,7 @@
 PATH
   remote: ../
   specs:
-    unobtrusive_flash (3.1.0)
+    unobtrusive_flash (3.1.1)
       railties
 
 GEM
@@ -143,3 +143,6 @@ DEPENDENCIES
   rspec-mocks (~> 2.99.2)
   selenium-webdriver
   unobtrusive_flash!
+
+BUNDLED WITH
+   1.10.6

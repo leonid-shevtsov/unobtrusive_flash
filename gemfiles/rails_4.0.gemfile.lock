@@ -1,7 +1,7 @@
 PATH
   remote: ../
   specs:
-    unobtrusive_flash (3.1.0)
+    unobtrusive_flash (3.1.1)
       railties
 
 GEM
@@ -151,3 +151,6 @@ DEPENDENCIES
   selenium-webdriver
   turbolinks
   unobtrusive_flash!
+
+BUNDLED WITH
+   1.10.6
