@@ -13,13 +13,7 @@ about 3 extra lines of code in your app - how's that for unobtrusive?
 You can pass up to 4K of text into flash this way, and you don't need to worry about cookie size since they are
 cleared immediately upon rendering.
 
-Tested in:
-
-* Internet Explorer 8 and later
-* Firefox up to v24
-* Chrome up to v30
-* Safari 6
-* Opera 12
+Tested in all major browsers, including Internet Explorer 8 and later.
 
 ## Requirements
 
