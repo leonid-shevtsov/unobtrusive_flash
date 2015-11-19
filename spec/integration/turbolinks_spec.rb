@@ -6,7 +6,8 @@ if Rails.version =~ /^4\./ and Capybara.javascript_driver == :selenium
       visit '/test/turbolinks'
       click_link 'This is a turbolink'
       expect(page).to have_content 'Turbolink content'
-      expect(evaluate_script('window.flashMessages')).to eq [
+      expect(evaluate_script('window.flashMessages')
+            .select { |flash| flash['message'] }).to eq [
         {'type' => 'notice', 'message' => 'Inline Notice'},
         {'type' => 'notice', 'message' => 'Turbolink Notice'}
       ]
