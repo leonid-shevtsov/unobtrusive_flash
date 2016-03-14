@@ -43,10 +43,17 @@ describe "bootstrap spec", type: :feature, js: true do
     non_message_content = "not a message"
     non_message_element = "<p id=\"#{non_message_id}\">#{non_message_content}</p>"
 
+    non_message_alert_id = "non-message-alert-element"
+    non_message_alert_content = "this .alert element is not an unobtrusive flash message"
+    non_message_alert_element = "<div id=\"#{non_message_alert_id}\">#{non_message_alert_content}</div>"
+
     page.execute_script('UnobtrusiveFlash.flashOptions.clearFlashOnNextRequest = true;')
     page.execute_script("$('.alert').parent().prepend('#{non_message_element}');")
+    page.execute_script("$('.alert').parent().prepend('#{non_message_alert_element}');")
     expect(find("##{non_message_id}")).to have_content non_message_content, count: 1
+    expect(find("##{non_message_alert_id}")).to have_content non_message_alert_content, count: 1
     page.execute_script("$.get('/test/ajax_flash');")
     expect(find("##{non_message_id}")).to have_content non_message_content, count: 1
+    expect(find("##{non_message_alert_id}")).to have_content non_message_alert_content, count: 1
   end
 end
