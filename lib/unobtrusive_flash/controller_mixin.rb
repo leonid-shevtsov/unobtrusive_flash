@@ -13,6 +13,7 @@ module UnobtrusiveFlash
         end
 
         cookie_flash += UnobtrusiveFlash::ControllerMixin.sanitize_flash(flash)
+        cookie_flash.uniq!
         cookies[:flash] = {:value => cookie_flash.to_json, :domain => unobtrusive_flash_domain}
         flash.discard
       end
