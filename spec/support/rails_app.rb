@@ -27,8 +27,12 @@ class TestApp < Rails::Application
   config.assets.enabled = true
   config.assets.compile = true
 
+  config.assets.precompile += %w(api.js bootstrap.js ui.js)
+
   config.middleware.delete "Rack::Lock"
-  config.middleware.delete "ActionDispatch::BestStandardsSupport"
+  unless Rails::VERSION::MAJOR >= 5
+    config.middleware.delete "ActionDispatch::BestStandardsSupport"
+  end
 
   # We need a secret token for session, cookies, etc.
   config.secret_token = "49837489qkuweoiuoqwehisuakshdjksadhaisdy78o34y138974xyqp9rmye8yrpiokeuioqwzyoiuxftoyqiuxrhm3iou1hrzmjk"
@@ -36,6 +40,7 @@ end
 
 class TestController < ActionController::Base
   layout false
+
   before_filter :set_inline_flash, except: %w(ajax_flash turbolinks_target)
   after_filter :prepare_unobtrusive_flash
 
