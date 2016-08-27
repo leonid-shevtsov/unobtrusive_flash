@@ -17,8 +17,8 @@ Tested in all major browsers, including Internet Explorer 8 and later.
 
 ## Requirements
 
-* Rails >=3 (Latest versions of 3.2, 4.0, 4.1, 4.2 are automatically tested)
-* jQuery (Latest versions of both jQuery 1 and jQuery 2 are automatically tested)
+* Rails >=3 (Latest versions of 3.2, 4.0, 4.1, 4.2, and 5.0 are automatically tested)
+* jQuery (Latest versions of jQuery 1, 2 and 3 are automatically tested)
 
 ## Usage
 
@@ -117,8 +117,6 @@ appraisal rake spec
 
 The same tests are ran on Travis CI against multiple versions of Ruby and jQuery.
 
-The Travis CI build does not test turbolinks as of now, because PhantomJS 1 does not support the necessary APIs. However, if you run the tests outside of Travis, they will use Selenium and perform a full range of tests.
-
 * * *
 
-&copy; 2010-2014 [Leonid Shevtsov](http://leonid.shevtsov.me) and [contributors](https://github.com/leonid-shevtsov/unobtrusive_flash/graphs/contributors), released under the MIT license
+&copy; 2010-2016 [Leonid Shevtsov](http://leonid.shevtsov.me) and [contributors](https://github.com/leonid-shevtsov/unobtrusive_flash/graphs/contributors), released under the MIT license
