@@ -10,11 +10,5 @@ require 'support/rails_app'
 
 Capybara.app = TestApp
 
-if ENV['TRAVIS']
-  # Selenium not available on TraviS CI without many pains.
-  require 'capybara/poltergeist'
-  Capybara.javascript_driver = :poltergeist
-else
-  # But Selenium supports turbolinks and PhantomJS does not
-  Capybara.javascript_driver = :selenium
-end
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist

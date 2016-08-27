@@ -29,8 +29,5 @@ EOT
   spec.add_development_dependency "rspec-mocks", '~>3'
   spec.add_development_dependency "appraisal"
   spec.add_development_dependency "capybara", '>=2.5'
-  # for local tests
-  spec.add_development_dependency 'selenium-webdriver'
-  # for Travis CI
-  spec.add_development_dependency 'poltergeist'
+  spec.add_development_dependency 'poltergeist', '>=1.10.0'
 end
