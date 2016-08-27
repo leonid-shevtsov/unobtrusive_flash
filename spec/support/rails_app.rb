@@ -4,7 +4,7 @@ require 'rails'
 require 'action_controller/railtie'
 require 'sprockets/railtie'
 require 'jquery-rails'
-if Rails.version =~ /^4\./
+if Rails.version.start_with? "4."
   require 'turbolinks'
   require 'jquery-turbolinks'
 end
@@ -26,18 +26,28 @@ class TestApp < Rails::Application
   config.assets.paths = [ File.expand_path(__FILE__ + '/../assets/javascripts') ]
   config.assets.enabled = true
   config.assets.compile = true
+  config.assets.precompile += %w(ui.js bootstrap.js api.js)
 
-  config.middleware.delete "Rack::Lock"
-  config.middleware.delete "ActionDispatch::BestStandardsSupport"
+  config.middleware.delete Rack::Lock
 
-  # We need a secret token for session, cookies, etc.
+  if Rails.version < "4"
+    config.middleware.delete ActionDispatch::BestStandardsSupport
+  end
+
   config.secret_token = "49837489qkuweoiuoqwehisuakshdjksadhaisdy78o34y138974xyqp9rmye8yrpiokeuioqwzyoiuxftoyqiuxrhm3iou1hrzmjk"
+  config.secret_key_base = "1234567890"
 end
 
 class TestController < ActionController::Base
   layout false
-  before_filter :set_inline_flash, except: %w(ajax_flash turbolinks_target)
-  after_filter :prepare_unobtrusive_flash
+
+  if Rails.version > "4"
+    before_action :set_inline_flash, except: %w(ajax_flash turbolinks_target)
+    after_action :prepare_unobtrusive_flash
+  else
+    before_filter :set_inline_flash, except: %w(ajax_flash turbolinks_target)
+    after_filter :prepare_unobtrusive_flash
+  end
 
   def turbolinks_target
     flash[:notice] = 'Turbolink Notice'
