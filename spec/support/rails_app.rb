@@ -4,7 +4,7 @@ require 'rails'
 require 'action_controller/railtie'
 require 'sprockets/railtie'
 require 'jquery-rails'
-if Rails.version.start_with? "4."
+if Rails::VERSION::MAJOR == 4
   require 'turbolinks'
   require 'jquery-turbolinks'
 end
@@ -30,7 +30,7 @@ class TestApp < Rails::Application
 
   config.middleware.delete Rack::Lock
 
-  if Rails.version < "4"
+  if Rails::VERSION::MAJOR < 4
     config.middleware.delete ActionDispatch::BestStandardsSupport
   end
 
@@ -41,12 +41,16 @@ end
 class TestController < ActionController::Base
   layout false
 
-  if Rails.version > "4"
+  if Rails::VERSION::MAJOR >= 4
     before_action :set_inline_flash, except: %w(ajax_flash turbolinks_target)
     after_action :prepare_unobtrusive_flash
   else
     before_filter :set_inline_flash, except: %w(ajax_flash turbolinks_target)
     after_filter :prepare_unobtrusive_flash
+  end
+
+  def ui
+    flash[:timedout] = 'timedout flash'
   end
 
   def turbolinks_target

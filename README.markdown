@@ -91,6 +91,18 @@ UnobtrusiveFlash.showFlashMessage('Hello World', {type: 'notice'})
 UnobtrusiveFlash.showFlashMessage('Error', {type: 'error', timeout: 0})
 ```
 
+## Using flash keys other than `notice, alert, error`
+
+By default, Unobtrusive Flash only displays the three "default" Rails flash types: `notice`, `alert`, and `error`. This is because some libraries use `flash` to keep data that is not directed at the user; for example, [Devise](https://github.com/plataformatec/devise) uses a boolean `flash[:timedout]`. If you use other keys to store messages, override `unobtrusive_flash_keys` in your controller:
+
+```ruby
+class ApplicationController
+  def unobtrusive_flash_keys
+    super << :success
+  end
+end
+```
+
 ## Issue with certain "hosted domains"
 
 There are [certain domains](https://publicsuffix.org/list/) that are considered "public" or "hosting" and specifically don't share cookies across subdomains. An example is `herokuapp.com` - a cookie set for `yourapp.herokuapp.com` will not be applied for `myapp.herokuapp.com`. This breaks the logic of `unobtrusive_flash` which is tuned for regular domains that could have internal subdomains.
