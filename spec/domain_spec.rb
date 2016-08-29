@@ -21,5 +21,13 @@ describe UnobtrusiveFlash::ControllerMixin do
         expect(subject.send(:unobtrusive_flash_domain)).to eq('myapp.herokuapp.com')
       end
     end
+
+    context 'on AWS ELB' do
+      let(:host) { 'myapp-1989.eu-west-1.elb.amazonaws.com' }
+
+      it 'should use the host' do
+        expect(subject.send(:unobtrusive_flash_domain)).to eq('myapp-1989.eu-west-1.elb.amazonaws.com')
+      end
+    end
   end
 end
