@@ -17,8 +17,8 @@ Tested in all major browsers, including Internet Explorer 8 and later.
 
 ## Requirements
 
-* Rails >=3 (Latest versions of 3.2, 4.0, 4.1, 4.2 are automatically tested)
-* jQuery (Latest versions of both jQuery 1 and jQuery 2 are automatically tested)
+* Rails >=3 (Latest versions of 3.2, 4.0, 4.1, 4.2, and 5.0 are automatically tested)
+* jQuery (Latest versions of jQuery 1, 2 and 3 are automatically tested)
 
 ## Usage
 
@@ -91,6 +91,18 @@ UnobtrusiveFlash.showFlashMessage('Hello World', {type: 'notice'})
 UnobtrusiveFlash.showFlashMessage('Error', {type: 'error', timeout: 0})
 ```
 
+## Using flash keys other than `notice, alert, error`
+
+By default, Unobtrusive Flash only displays the three "default" Rails flash types: `notice`, `alert`, and `error`. This is because some libraries use `flash` to keep data that is not directed at the user; for example, [Devise](https://github.com/plataformatec/devise) uses a boolean `flash[:timedout]`. If you use other keys to store messages, override `unobtrusive_flash_keys` in your controller:
+
+```ruby
+class ApplicationController
+  def unobtrusive_flash_keys
+    super << :success
+  end
+end
+```
+
 ## Issue with certain "hosted domains"
 
 There are [certain domains](https://publicsuffix.org/list/) that are considered "public" or "hosting" and specifically don't share cookies across subdomains. An example is `herokuapp.com` - a cookie set for `yourapp.herokuapp.com` will not be applied for `myapp.herokuapp.com`. This breaks the logic of `unobtrusive_flash` which is tuned for regular domains that could have internal subdomains.
@@ -117,8 +129,6 @@ appraisal rake spec
 
 The same tests are ran on Travis CI against multiple versions of Ruby and jQuery.
 
-The Travis CI build does not test turbolinks as of now, because PhantomJS 1 does not support the necessary APIs. However, if you run the tests outside of Travis, they will use Selenium and perform a full range of tests.
-
 * * *
 
-&copy; 2010-2014 [Leonid Shevtsov](http://leonid.shevtsov.me) and [contributors](https://github.com/leonid-shevtsov/unobtrusive_flash/graphs/contributors), released under the MIT license
+&copy; 2010-2016 [Leonid Shevtsov](http://leonid.shevtsov.me) and [contributors](https://github.com/leonid-shevtsov/unobtrusive_flash/graphs/contributors), released under the MIT license

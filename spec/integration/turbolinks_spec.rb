@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-if Rails.version =~ /^4\./ and Capybara.javascript_driver == :selenium
+if Rails.version.start_with? "4."
   describe "turbolinks spec", type: :feature, js: true do
     it 'should invoke the API for each flash message' do
       visit '/test/turbolinks'
