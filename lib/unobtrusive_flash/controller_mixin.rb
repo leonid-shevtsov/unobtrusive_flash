@@ -5,18 +5,13 @@ module UnobtrusiveFlash
     protected
 
     def prepare_unobtrusive_flash
-      if flash.any?
-        cookie_flash = []
-        if cookies['flash']
-          cookie_flash = JSON.parse(cookies['flash']) rescue nil
-          cookie_flash=[] unless cookie_flash.is_a? Array
-        end
-
-        cookie_flash += UnobtrusiveFlash::ControllerMixin.sanitize_flash(flash, unobtrusive_flash_keys)
-        cookie_flash.uniq!
-        cookies[:flash] = {:value => cookie_flash.to_json, :domain => unobtrusive_flash_domain}
-        flash.discard
-      end
+      return unless flash.any?
+      # TODO: replace configuration based on overriding methods with a conventional config block
+      cookies[:flash] = {
+        value: UnobtrusiveFlash::ControllerMixin.append_flash_to_cookie(cookies[:flash], flash, unobtrusive_flash_keys),
+        domain: unobtrusive_flash_domain
+      }
+      flash.discard
     end
 
     # Setting cookies for :all domains is broken for Heroku apps, read this article for details
@@ -44,8 +39,20 @@ module UnobtrusiveFlash
         displayable_flash = flash.select { |key, value| displayable_flash_keys.include?(key.to_sym) }
         displayable_flash.map do |key, value|
           html_safe_value = value.html_safe? ? value : ERB::Util.html_escape(value)
-          [key, html_safe_value]
+          [key.to_s, html_safe_value]
         end
+      end
+
+      def append_flash_to_cookie(existing_cookie, flash, unobtrusive_flash_keys)
+        if existing_cookie
+          cookie_flash = JSON.parse(existing_cookie) rescue []
+        else
+          cookie_flash = []
+        end
+
+        cookie_flash += sanitize_flash(flash, unobtrusive_flash_keys)
+
+        cookie_flash.uniq.to_json
       end
     end
   end
