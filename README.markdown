@@ -54,6 +54,11 @@ If you want the flash messages to disappear automatically, set this in your Java
 UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
 ```
 
+You can config the resulting mapping classes like this:
+```javascript
+UnobtrusiveFlash.flashOptions.mapping.notice = 'success'
+```
+
 ### Option 2: For non-Bootstrap projects
 
 Also `require unobtrusive_flash_ui` in your `application.js` and `require unobtrusive_flash_ui` in your `application.css`. These files contain a no-frills flash message UI that works out of the box.
