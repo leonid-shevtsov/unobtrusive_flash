@@ -1,3 +1,14 @@
+## 2016-11-08 3.3.0
+
+* Now compatible with jQuery 1, 2 and 3.
+* Now compatible with Rails 5.
+* Now compatible with turbolinks 5.
+* Make bootstrap flash mapping configurable [#31]
+* Do not repeat flash messages [#32]
+* Support AWS ELB out of the box [#33]
+* Only show user-facing flash messages [#21]
+* Tested with JRuby
+
 ## 2015-11-06 3.2.0
 
 * Support passing flash with non-successful (non-200) AJAX requests thanks to @Markwallow [#28]
