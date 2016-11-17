@@ -1,3 +1,7 @@
+## 2016-11-17 3.3.1
+
+* Added `:success` and `:warning` to list of Flash keys visible by default
+
 ## 2016-11-08 3.3.0
 
 * Now compatible with jQuery 1, 2 and 3.

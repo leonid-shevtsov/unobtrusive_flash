@@ -96,9 +96,9 @@ UnobtrusiveFlash.showFlashMessage('Hello World', {type: 'notice'})
 UnobtrusiveFlash.showFlashMessage('Error', {type: 'error', timeout: 0})
 ```
 
-## Using flash keys other than `notice, alert, error`
+## Using custom flash keys
 
-By default, Unobtrusive Flash only displays the three "default" Rails flash types: `notice`, `alert`, and `error`. This is because some libraries use `flash` to keep data that is not directed at the user; for example, [Devise](https://github.com/plataformatec/devise) uses a boolean `flash[:timedout]`. If you use other keys to store messages, override `unobtrusive_flash_keys` in your controller:
+By default, Unobtrusive Flash only displays a limited set of flash types [(see UnobtrusiveFlash::ControllerMixin#unobtrusive_flash_keys)](https://github.com/leonid-shevtsov/unobtrusive_flash/blob/master/lib/unobtrusive_flash/controller_mixin.rb#L36). This is because some libraries use `flash` to keep data that is not directed at the user; for example, [Devise](https://github.com/plataformatec/devise) uses a boolean `flash[:timedout]`. If you use other keys to store messages, override `unobtrusive_flash_keys` in your controller:
 
 ```ruby
 class ApplicationController

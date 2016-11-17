@@ -34,7 +34,7 @@ module UnobtrusiveFlash
     # List of all flash keys that will be displayed on the frontend. Override
     # this method if you use more flash types.
     def unobtrusive_flash_keys
-      [:notice, :alert, :error]
+      [:notice, :alert, :error, :success, :warning]
     end
 
     class << self
