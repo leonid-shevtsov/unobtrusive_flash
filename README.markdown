@@ -31,7 +31,7 @@ Tested in all major browsers, including Internet Explorer 8 and later.
 2. Add the following to the controllers that generate flash messages (or better, to the `ApplicationController`):
 
     ```ruby
-    after_filter :prepare_unobtrusive_flash
+    after_action :prepare_unobtrusive_flash
     ```
 
     Flash messages are HTML escaped in the same manner as regular Rails view code: if a message is not `html_safe`, it is escaped, otherwise not. This lets you use helpers such as `link_to` in your messages.
