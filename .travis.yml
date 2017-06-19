@@ -19,8 +19,8 @@ env:
 matrix:
   exclude:
   - rvm: 1.9.3
-    gemfile: gemfiles/rails_5.gemfile
-  - rvm: 2.0.0-p648
+    gemfile: gemfiles/rails_4.0.gemfile
+  - rvm: 1.9.3
     gemfile: gemfiles/rails_5.gemfile
 
 script: bundle exec rspec spec
