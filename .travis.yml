@@ -3,9 +3,8 @@ language: ruby
 rvm:
 - jruby-9.1.2.0
 - 1.9.3
-- 2.0.0-p648
-- 2.2.5
-- 2.3.1
+- 2.3.4
+- 2.4.1
 gemfile:
   - gemfiles/rails_3.2.gemfile
   - gemfiles/rails_4.0.gemfile
@@ -16,7 +15,7 @@ env:
   matrix:
   - JQUERY_VERSION=1.12.4
   - JQUERY_VERSION=2.2.4
-  - JQUERY_VERSION=3.1.0
+  - JQUERY_VERSION=3.2.1
 matrix:
   exclude:
   - rvm: 1.9.3

@@ -17,7 +17,7 @@ Tested in all major browsers, including Internet Explorer 8 and later.
 
 ## Requirements
 
-* Rails >=3 (Latest versions of 3.2, 4.0, 4.1, 4.2, and 5.0 are automatically tested)
+* Rails >=3 (Latest versions of 3.2, 4.0, 4.1, 4.2, and 5 are automatically tested)
 * jQuery (Latest versions of jQuery 1, 2 and 3 are automatically tested)
 
 ## Usage
