@@ -1,7 +1,7 @@
 PATH
   remote: ../
   specs:
-    unobtrusive_flash (3.3.1)
+    unobtrusive_flash (3.3.2)
       railties
 
 GEM

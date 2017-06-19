@@ -1,3 +1,7 @@
+## 2017-06-19 3.3.2
+
+* Bugfix - Handle case when cookie is null
+
 ## 2016-11-17 3.3.1
 
 * Added `:success` and `:warning` to list of Flash keys visible by default
