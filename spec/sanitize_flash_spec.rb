@@ -27,5 +27,9 @@ describe UnobtrusiveFlash::ControllerMixin do
     it 'should not insert flash is already in the cookie' do
       expect(described_class.append_flash_to_cookie('[["foo","bar"]]', {:foo => 'bar'}, [:foo])).to eq('[["foo","bar"]]')
     end
+
+    it 'should reset cookie if it is null' do
+      expect(described_class.append_flash_to_cookie('null', {:foo => 'bar'}, [:foo])).to eq('[["foo","bar"]]')
+    end
   end
 end
