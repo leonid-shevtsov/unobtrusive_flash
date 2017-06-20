@@ -17,7 +17,7 @@ env:
 matrix:
   exclude:
   - rvm: 1.9.3
-    gemfile: gemfiles/rails_4.0.gemfile
+    gemfile: gemfiles/rails_4.2.gemfile
   - rvm: 1.9.3
     gemfile: gemfiles/rails_5.gemfile
   - rvm: 2.4.1
