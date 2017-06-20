@@ -2,7 +2,6 @@ sudo: false
 language: ruby
 rvm:
 - jruby-9.1.12.0
-- 1.9.3
 - 2.3.4
 - 2.4.1
 gemfile:
@@ -16,10 +15,6 @@ env:
   - JQUERY_VERSION=3.2.1
 matrix:
   exclude:
-  - rvm: 1.9.3
-    gemfile: gemfiles/rails_4.2.gemfile
-  - rvm: 1.9.3
-    gemfile: gemfiles/rails_5.gemfile
   - rvm: 2.4.1
     gemfile: gemfiles/rails_3.2.gemfile
 
