@@ -27,6 +27,9 @@ class TestApp < Rails::Application
   config.assets.enabled = true
   config.assets.compile = true
   config.assets.precompile += %w(ui.js bootstrap.js api.js)
+  if Rails::VERSION::MAJOR == 4
+    config.assets.precompile += %w(turbolinks_application.js jquery_turbolinks_application.js)
+  end
 
   config.middleware.delete Rack::Lock
 
