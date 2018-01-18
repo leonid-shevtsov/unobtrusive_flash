@@ -50,15 +50,16 @@ module UnobtrusiveFlash
       end
 
       def append_flash_to_cookie(existing_cookie, flash, unobtrusive_flash_keys)
-        cookie_flash = (existing_cookie && parse_cookie(existing_cookie)) || []
-        cookie_flash += sanitize_flash(flash, unobtrusive_flash_keys)
+        cookie_flash = (existing_cookie && parse_cookie(existing_cookie))
+        cookie_flash = [] unless cookie_flash.is_a? Array
+        cookie_flash += self.sanitize_flash(flash, unobtrusive_flash_keys)
         cookie_flash.uniq.to_json
       end
 
       def parse_cookie(existing_cookie)
         JSON.parse(existing_cookie)
       rescue JSON::JSONError
-        nil
+        []
       end
     end
   end
