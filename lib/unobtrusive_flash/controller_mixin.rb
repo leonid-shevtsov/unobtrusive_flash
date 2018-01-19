@@ -12,7 +12,7 @@ module UnobtrusiveFlash
       return unless flash.any?
       # TODO: replace configuration based on overriding methods with a conventional config block
       cookies[:flash] = {
-        value: append_flash_to_cookie(cookies[:flash], flash, unobtrusive_flash_keys),
+        value: self.class.append_flash_to_cookie(cookies[:flash], flash, unobtrusive_flash_keys),
         domain: unobtrusive_flash_domain
       }
       flash.discard
