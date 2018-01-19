@@ -4,11 +4,15 @@ module UnobtrusiveFlash
   module ControllerMixin
     protected
 
+    def self.included(base)
+      base.extend(ClassMethods)
+    end
+
     def prepare_unobtrusive_flash
       return unless flash.any?
       # TODO: replace configuration based on overriding methods with a conventional config block
       cookies[:flash] = {
-        value: UnobtrusiveFlash::ControllerMixin.append_flash_to_cookie(cookies[:flash], flash, unobtrusive_flash_keys),
+        value: append_flash_to_cookie(cookies[:flash], flash, unobtrusive_flash_keys),
         domain: unobtrusive_flash_domain
       }
       flash.discard
@@ -37,7 +41,9 @@ module UnobtrusiveFlash
       [:notice, :alert, :error, :success, :warning]
     end
 
-    class << self
+    module ClassMethods
+      extend self
+
       # Prepares a safe and clean version of the flash hash for the frontend
       # flash - value of `flash` controller attribute
       # displayable_flash_keys - list of flash keys that will be displayed
