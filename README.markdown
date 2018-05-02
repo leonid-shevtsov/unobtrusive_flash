@@ -1,5 +1,7 @@
 # Unobtrusive flash messages for Rails [![Build Status](https://travis-ci.org/leonid-shevtsov/unobtrusive_flash.svg?branch=master)](https://travis-ci.org/leonid-shevtsov/unobtrusive_flash)
 
+<a href='https://ko-fi.com/X8X19BQH' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 Ever got tired of pages that can't be cached because they contain flash messages?
 
 Ever got tired of writing custom code to handle flash messages passed in AJAX responses?
@@ -22,13 +24,13 @@ Tested in all major browsers, including Internet Explorer 8 and later.
 
 ## Usage
 
-1. Add the `unobtrusive_flash` gem to your Gemfile.
+1.  Add the `unobtrusive_flash` gem to your Gemfile.
 
     ```ruby
     gem 'unobtrusive_flash', '>=3'
     ```
 
-2. Add the following to the controllers that generate flash messages (or better, to the `ApplicationController`):
+2.  Add the following to the controllers that generate flash messages (or better, to the `ApplicationController`):
 
     ```ruby
     after_action :prepare_unobtrusive_flash
@@ -36,11 +38,11 @@ Tested in all major browsers, including Internet Explorer 8 and later.
 
     Flash messages are HTML escaped in the same manner as regular Rails view code: if a message is not `html_safe`, it is escaped, otherwise not. This lets you use helpers such as `link_to` in your messages.
 
-3. Include `require unobtrusive_flash` in your `application.js`.
+3.  Include `require unobtrusive_flash` in your `application.js`.
 
-4. Delete flash rendering code from your views, if there was any.
+4.  Delete flash rendering code from your views, if there was any.
 
-5. You have three options to render flash messages on the frontend:
+5.  You have three options to render flash messages on the frontend:
 
 ### Option 1: For Bootstrap projects
 
@@ -51,12 +53,13 @@ Either declare a `.unobtrusive-flash-container` element somewhere on the page to
 If you want the flash messages to disappear automatically, set this in your Javascript:
 
 ```javascript
-UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
+UnobtrusiveFlash.flashOptions["timeout"] = 2000; // milliseconds
 ```
 
 You can config the resulting mapping classes like this:
+
 ```javascript
-UnobtrusiveFlash.flashOptions.mapping.notice = 'success'
+UnobtrusiveFlash.flashOptions.mapping.notice = "success";
 ```
 
 ### Option 2: For non-Bootstrap projects
@@ -66,7 +69,7 @@ Also `require unobtrusive_flash_ui` in your `application.js` and `require unobtr
 If you want the flash messages to disappear automatically, set this in your Javascript:
 
 ```javascript
-UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
+UnobtrusiveFlash.flashOptions["timeout"] = 2000; // milliseconds
 ```
 
 ### Option 3: Roll your own
@@ -75,10 +78,12 @@ Unobtrusive Flash triggers jQuery events when flash is received. If you want to 
 
 ```javascript
 flashHandler = function(e, params) {
-  alert('Received flash message '+params.message+' with type '+params.type);
+  alert(
+    "Received flash message " + params.message + " with type " + params.type
+  );
 };
 
-$(window).bind('rails:flash', flashHandler);
+$(window).bind("rails:flash", flashHandler);
 ```
 
 ## Using UnobtrusiveFlash with a frontend framework that doesn't use jQuery for AJAX
@@ -91,9 +96,9 @@ Both Bootstrap and non-Bootstrap versions contain a function to display flash me
 
 ```javascript
 // Shown for 5 seconds (default)
-UnobtrusiveFlash.showFlashMessage('Hello World', {type: 'notice'})
+UnobtrusiveFlash.showFlashMessage("Hello World", { type: "notice" });
 // Shown forever
-UnobtrusiveFlash.showFlashMessage('Error', {type: 'error', timeout: 0})
+UnobtrusiveFlash.showFlashMessage("Error", { type: "error", timeout: 0 });
 ```
 
 ## Using custom flash keys
@@ -134,6 +139,6 @@ appraisal rake spec
 
 The same tests are ran on Travis CI against multiple versions of Ruby and jQuery.
 
-* * *
+---
 
 &copy; 2010-2016 [Leonid Shevtsov](http://leonid.shevtsov.me) and [contributors](https://github.com/leonid-shevtsov/unobtrusive_flash/graphs/contributors), released under the MIT license
