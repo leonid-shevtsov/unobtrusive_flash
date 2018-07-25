@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UnobtrusiveFlash::ControllerMixin do
+describe UnobtrusiveFlash::ControllerMixin::ClassMethods, type: :controller do
   describe '.sanitize_flash' do
     it 'should escape messages that are not html safe' do
       expect(described_class.sanitize_flash({:notice => '<bar>'}, [:notice])).to eq([["notice", '&lt;bar&gt;']])
