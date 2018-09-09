@@ -8,7 +8,7 @@ module UnobtrusiveFlash
       return unless flash.any?
       # TODO: replace configuration based on overriding methods with a conventional config block
       cookies[:flash] = {
-        value: UnobtrusiveFlash::ControllerMixin.append_flash_to_cookie(cookies[:flash], flash, unobtrusive_flash_keys),
+        value: UnobtrusiveFlash::ControllerMixin.append_flash_to_cookie(cookies[:flash], flash),
         domain: unobtrusive_flash_domain
       }
       flash.discard
@@ -31,27 +31,19 @@ module UnobtrusiveFlash
       end
     end
 
-    # List of all flash keys that will be displayed on the frontend. Override
-    # this method if you use more flash types.
-    def unobtrusive_flash_keys
-      [:notice, :alert, :error, :success, :warning]
-    end
-
     class << self
       # Prepares a safe and clean version of the flash hash for the frontend
       # flash - value of `flash` controller attribute
-      # displayable_flash_keys - list of flash keys that will be displayed
-      def sanitize_flash(flash, displayable_flash_keys)
-        displayable_flash = flash.select { |key, value| displayable_flash_keys.include?(key.to_sym) }
-        displayable_flash.map do |key, value|
+      def sanitize_flash(flash)
+        flash.map do |key, value|
           html_safe_value = value.html_safe? ? value : ERB::Util.html_escape(value)
           [key.to_s, html_safe_value]
         end
       end
 
-      def append_flash_to_cookie(existing_cookie, flash, unobtrusive_flash_keys)
+      def append_flash_to_cookie(existing_cookie, flash)
         cookie_flash = (existing_cookie && parse_cookie(existing_cookie)) || []
-        cookie_flash += sanitize_flash(flash, unobtrusive_flash_keys)
+        cookie_flash += sanitize_flash(flash)
         cookie_flash.uniq.to_json
       end
 
