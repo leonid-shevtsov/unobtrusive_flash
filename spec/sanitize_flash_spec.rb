@@ -20,6 +20,14 @@ describe UnobtrusiveFlash::ControllerMixin do
       expect(described_class.append_flash_to_cookie(nil, {:baz => 'qux'}, [:baz])).to eq('[["baz","qux"]]')
     end
 
+    it 'should gracefully handle non-conforming cookies' do
+      expect(described_class.append_flash_to_cookie('{}', {:baz => 'qux'}, [:baz])).to eq('[["baz","qux"]]')
+    end
+
+    it 'should gracefully handle tampered cookies' do
+      expect(described_class.append_flash_to_cookie('some_invalid_json', {:baz => 'qux'}, [:baz])).to eq('[["baz","qux"]]')
+    end
+
     it 'should reuse existing cookie' do
       expect(described_class.append_flash_to_cookie('[["foo","bar"]]', {:baz => 'qux'}, [:baz])).to eq('[["foo","bar"],["baz","qux"]]')
     end
